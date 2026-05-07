@@ -32,18 +32,19 @@ export default function LoginPage() {
     return () => unsubscribe();
   }, []);
 
-  const googleLogin = async () => {
-    const provider = new GoogleAuthProvider();
+const googleLogin = async () => {
+  const provider = new GoogleAuthProvider();
 
-    try {
-      await signInWithPopup(auth, provider);
+  try {
+    await signInWithPopup(auth, provider);
 
-      router.push("/dashboard");
+    router.push("/dashboard");
 
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  } catch (error) {
+    console.log("FULL ERROR:", error);
+    alert(error.message);
+  }
+};
 
  const signup = async () => {
 
